@@ -39,9 +39,9 @@ namespace Concordia_Web_App.Controllers
         // GET: Course_Class/Create
         public ActionResult Create()
         {
-            ViewBag.Alt_Professor_Id = new SelectList(db.ApplicationUsers, "Id", "Email");
+            ViewBag.Alt_Professor_Id = new SelectList(db.Users, "Id", "Email");
             ViewBag.Course_Id = new SelectList(db.Courses, "Id", "Course_Name");
-            ViewBag.Professor_Id = new SelectList(db.ApplicationUsers, "Id", "Email");
+            ViewBag.Professor_Id = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
@@ -59,9 +59,9 @@ namespace Concordia_Web_App.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Alt_Professor_Id = new SelectList(db.ApplicationUsers, "Id", "Email", course_Class.Alt_Professor_Id);
+            ViewBag.Alt_Professor_Id = new SelectList(db.Users, "Id", "Email", course_Class.Alt_Professor_Id);
             ViewBag.Course_Id = new SelectList(db.Courses, "Id", "Course_Name", course_Class.Course_Id);
-            ViewBag.Professor_Id = new SelectList(db.ApplicationUsers, "Id", "Email", course_Class.Professor_Id);
+            ViewBag.Professor_Id = new SelectList(db.Users, "Id", "Email", course_Class.Professor_Id);
             return View(course_Class);
         }
 
@@ -77,9 +77,9 @@ namespace Concordia_Web_App.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Alt_Professor_Id = new SelectList(db.ApplicationUsers, "Id", "Email", course_Class.Alt_Professor_Id);
+            ViewBag.Alt_Professor_Id = new SelectList(db.Users, "Id", "Email", course_Class.Alt_Professor_Id);
             ViewBag.Course_Id = new SelectList(db.Courses, "Id", "Course_Name", course_Class.Course_Id);
-            ViewBag.Professor_Id = new SelectList(db.ApplicationUsers, "Id", "Email", course_Class.Professor_Id);
+            ViewBag.Professor_Id = new SelectList(db.Users, "Id", "Email", course_Class.Professor_Id);
             return View(course_Class);
         }
 
@@ -96,9 +96,9 @@ namespace Concordia_Web_App.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Alt_Professor_Id = new SelectList(db.ApplicationUsers, "Id", "Email", course_Class.Alt_Professor_Id);
+            ViewBag.Alt_Professor_Id = new SelectList(db.Users, "Id", "Email", course_Class.Alt_Professor_Id);
             ViewBag.Course_Id = new SelectList(db.Courses, "Id", "Course_Name", course_Class.Course_Id);
-            ViewBag.Professor_Id = new SelectList(db.ApplicationUsers, "Id", "Email", course_Class.Professor_Id);
+            ViewBag.Professor_Id = new SelectList(db.Users, "Id", "Email", course_Class.Professor_Id);
             return View(course_Class);
         }
 

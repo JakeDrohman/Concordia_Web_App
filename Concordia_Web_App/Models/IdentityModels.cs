@@ -32,7 +32,7 @@ namespace Concordia_Web_App.Models
 
         public System.Data.Entity.DbSet<Concordia_Web_App.Models.Appointment> Appointments { get; set; }
 
-        public System.Data.Entity.DbSet<Concordia_Web_App.Models.ApplicationUser> ApplicationUsers { get; set; }
+        //public System.Data.Entity.DbSet<Concordia_Web_App.Models.ApplicationUser> ApplicationUsers { get; set; }
 
         public System.Data.Entity.DbSet<Concordia_Web_App.Models.Student> Students { get; set; }
 

@@ -39,7 +39,7 @@ namespace Concordia_Web_App.Controllers
         // GET: Appointments/Create
         public ActionResult Create()
         {
-            ViewBag.Advisor_Id = new SelectList(db.ApplicationUsers, "Id", "Email");
+            ViewBag.Advisor_Id = new SelectList(db.Users, "Id", "Email");
             ViewBag.Student_Id = new SelectList(db.Students, "Id", "First_Name");
             return View();
         }
@@ -58,7 +58,7 @@ namespace Concordia_Web_App.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Advisor_Id = new SelectList(db.ApplicationUsers, "Id", "Email", appointment.Advisor_Id);
+            ViewBag.Advisor_Id = new SelectList(db.Users, "Id", "Email", appointment.Advisor_Id);
             ViewBag.Student_Id = new SelectList(db.Students, "Id", "First_Name", appointment.Student_Id);
             return View(appointment);
         }
@@ -75,7 +75,7 @@ namespace Concordia_Web_App.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Advisor_Id = new SelectList(db.ApplicationUsers, "Id", "Email", appointment.Advisor_Id);
+            ViewBag.Advisor_Id = new SelectList(db.Users, "Id", "Email", appointment.Advisor_Id);
             ViewBag.Student_Id = new SelectList(db.Students, "Id", "First_Name", appointment.Student_Id);
             return View(appointment);
         }
@@ -93,7 +93,7 @@ namespace Concordia_Web_App.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Advisor_Id = new SelectList(db.ApplicationUsers, "Id", "Email", appointment.Advisor_Id);
+            ViewBag.Advisor_Id = new SelectList(db.Users, "Id", "Email", appointment.Advisor_Id);
             ViewBag.Student_Id = new SelectList(db.Students, "Id", "First_Name", appointment.Student_Id);
             return View(appointment);
         }
