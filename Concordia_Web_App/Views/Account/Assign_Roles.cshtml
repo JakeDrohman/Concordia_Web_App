@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Concordia_Web_App.Models.Assign_Roles_View_Model>
+
+@{
+    ViewBag.Title = "Assign_Roles";
+}
+
+<h2>Assign_Roles</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Info.First_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Info.Last_Name)
+        </th>
+        <th>
+            Role
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Info.First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Info.Last_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.ActionLink("Assign Admin", "Assign_Role", "Account", new { user = item.User, role = "Admin" }) |
+                @Html.ActionLink("Assign Advisor", "Assign_Role", "Account", new { user = item.User, role = "Advisor" }) |
+                @Html.ActionLink("Assign Data Entry", "Assign_Role", "Account", new { user = item.User, role = "Data_Entry" }) |
+                @Html.ActionLink("Assign Professor", "Assign_Role", "Account", new { user = item.User, role = "Professor" })
+            </td>
+            <td>
+                @Html.ActionLink("Remove Admin", "Remove_Role", "Account", new { user = item.User, role = "Admin" }) |
+                @Html.ActionLink("Remove Advisor", "Remove_Role", "Account", new { user = item.User, role = "Advisor" }) |
+                @Html.ActionLink("Remove Data Entry", "Remove_Role", "Account", new { user = item.User, role = "Data_Entry" }) |
+                @Html.ActionLink("Remove Professor", "Remove_Role", "Account", new { user = item.User, role = "Professor" })
+            </td>
+        </tr>
+    }
+
+</table>

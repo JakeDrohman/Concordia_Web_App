@@ -1,0 +1,74 @@
+﻿@model Concordia_Web_App.Models.User_Information
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User_Information</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.First_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Last_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Middle_Initial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Middle_Initial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alt_First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alt_First_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alt_Last_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alt_Last_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alt_Middle_Initial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alt_Middle_Initial)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

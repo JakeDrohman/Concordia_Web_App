@@ -45,5 +45,11 @@ namespace Concordia_Web_App.Models
         public System.Data.Entity.DbSet<Concordia_Web_App.Models.Student_Address> Student_Address { get; set; }
 
         public System.Data.Entity.DbSet<Concordia_Web_App.Models.Student_Graduation_Info> Student_Graduation_Info { get; set; }
+
+        public System.Data.Entity.DbSet<Concordia_Web_App.Models.Student_Classes> Student_Classes { get; set; }
+
+        public System.Data.Entity.DbSet<Concordia_Web_App.Models.User_Information> User_Information { get; set; }
+
+        //public System.Data.Entity.DbSet<Concordia_Web_App.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

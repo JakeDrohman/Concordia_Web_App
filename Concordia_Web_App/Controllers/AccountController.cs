@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Concordia_Web_App.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
 namespace Concordia_Web_App.Controllers
 {
@@ -17,6 +19,7 @@ namespace Concordia_Web_App.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -26,6 +29,48 @@ namespace Concordia_Web_App.Controllers
         {
             UserManager = userManager;
             SignInManager = signInManager;
+        }
+
+        public ActionResult Assign_Roles()
+        {
+            UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            var users = db.Users;
+            List<Assign_Roles_View_Model> models = new List<Assign_Roles_View_Model>();
+            foreach (var user in users)
+            {
+                List<string> roles = new List<string>();
+                try
+                {
+                    var RolesList = userManager.GetRoles(user.Id);
+                    foreach (string role in RolesList) { roles.Add(role); }
+                }
+                catch
+                {
+                    roles.Add("No assigned role");
+                }
+                var model = new Assign_Roles_View_Model()
+                {
+                    User = user,
+                    Role = roles
+                };
+                models.Add(model);
+
+            }
+            return View(models);
+        }
+
+        public ActionResult Assign_Role(ApplicationUser user,string role)
+        {
+            UserManager.AddToRole(user.Id, role);
+            db.SaveChanges();
+            return RedirectToAction("AssignRoles");
+        }
+
+        public ActionResult Remove_Role(ApplicationUser user,string role)
+        {
+            UserManager.RemoveFromRole(user.Id, role);
+            db.SaveChanges();
+            return RedirectToAction("AssignRoles");
         }
 
         public ApplicationSignInManager SignInManager
@@ -152,6 +197,7 @@ namespace Concordia_Web_App.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                User_Information info = new User_Information { First_Name = model.First_Name, Last_Name = model.Last_Name, User = user, Id = new, User_Id=}
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
