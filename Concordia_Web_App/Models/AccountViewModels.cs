@@ -79,6 +79,29 @@ namespace Concordia_Web_App.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string First_Name { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string Last_Name { get; set; }
+
+        [Required]
+        [StringLength(1, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 1)]
+        [Display(Name = "Middle Initial")]
+        public string Middle_Initial { get; set; }
+
+        [Display(Name = "Alternate First Name")]
+        public string Alt_First_Name { get; set; }
+
+        [Display(Name = "Alternate Last Name")]
+        public string Alt_Last_Name { get; set; }
+
+        [Display(Name = "Alternate Middle Initial")]
+        [StringLength(1, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 1)]
+        public string Alt_Middle_Initial { get; set; }
     }
 
     public class ResetPasswordViewModel
