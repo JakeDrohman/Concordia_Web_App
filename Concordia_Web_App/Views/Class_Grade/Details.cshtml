@@ -1,0 +1,42 @@
+﻿@model Concordia_Web_App.Models.Class_Grade
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Class_Grade</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Grade_Percentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grade_Percentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Failed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Failed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

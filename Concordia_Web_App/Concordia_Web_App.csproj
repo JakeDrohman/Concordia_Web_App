@@ -196,8 +196,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppointmentsController.cs" />
+    <Compile Include="Controllers\Class_GradeController.cs" />
+    <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Controllers\Course_ClassController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\Student_AddressController.cs" />
+    <Compile Include="Controllers\Student_Graduation_InfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -274,6 +281,41 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Appointments\Create.cshtml" />
+    <Content Include="Views\Appointments\Delete.cshtml" />
+    <Content Include="Views\Appointments\Details.cshtml" />
+    <Content Include="Views\Appointments\Edit.cshtml" />
+    <Content Include="Views\Appointments\Index.cshtml" />
+    <Content Include="Views\Class_Grade\Create.cshtml" />
+    <Content Include="Views\Class_Grade\Delete.cshtml" />
+    <Content Include="Views\Class_Grade\Details.cshtml" />
+    <Content Include="Views\Class_Grade\Edit.cshtml" />
+    <Content Include="Views\Class_Grade\Index.cshtml" />
+    <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Delete.cshtml" />
+    <Content Include="Views\Courses\Details.cshtml" />
+    <Content Include="Views\Courses\Edit.cshtml" />
+    <Content Include="Views\Courses\Index.cshtml" />
+    <Content Include="Views\Course_Class\Create.cshtml" />
+    <Content Include="Views\Course_Class\Delete.cshtml" />
+    <Content Include="Views\Course_Class\Details.cshtml" />
+    <Content Include="Views\Course_Class\Edit.cshtml" />
+    <Content Include="Views\Course_Class\Index.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Student_Address\Create.cshtml" />
+    <Content Include="Views\Student_Address\Delete.cshtml" />
+    <Content Include="Views\Student_Address\Details.cshtml" />
+    <Content Include="Views\Student_Address\Edit.cshtml" />
+    <Content Include="Views\Student_Address\Index.cshtml" />
+    <Content Include="Views\Student_Graduation_Info\Create.cshtml" />
+    <Content Include="Views\Student_Graduation_Info\Delete.cshtml" />
+    <Content Include="Views\Student_Graduation_Info\Details.cshtml" />
+    <Content Include="Views\Student_Graduation_Info\Edit.cshtml" />
+    <Content Include="Views\Student_Graduation_Info\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

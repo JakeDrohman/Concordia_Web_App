@@ -29,5 +29,21 @@ namespace Concordia_Web_App.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Concordia_Web_App.Models.Appointment> Appointments { get; set; }
+
+        public System.Data.Entity.DbSet<Concordia_Web_App.Models.ApplicationUser> ApplicationUsers { get; set; }
+
+        public System.Data.Entity.DbSet<Concordia_Web_App.Models.Student> Students { get; set; }
+
+        public System.Data.Entity.DbSet<Concordia_Web_App.Models.Class_Grade> Class_Grade { get; set; }
+
+        public System.Data.Entity.DbSet<Concordia_Web_App.Models.Course> Courses { get; set; }
+
+        public System.Data.Entity.DbSet<Concordia_Web_App.Models.Course_Class> Course_Class { get; set; }
+
+        public System.Data.Entity.DbSet<Concordia_Web_App.Models.Student_Address> Student_Address { get; set; }
+
+        public System.Data.Entity.DbSet<Concordia_Web_App.Models.Student_Graduation_Info> Student_Graduation_Info { get; set; }
     }
 }

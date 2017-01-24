@@ -32,7 +32,7 @@ namespace Concordia_Web_App.Models
         public char Alt_Middle_Initial { get; set; }
 
         [ForeignKey("Advisor")]
-        public int Advisor_Id { get; set; }
+        public string Advisor_Id { get; set; }
         public ApplicationUser Advisor { get; set; }
     }
 }
