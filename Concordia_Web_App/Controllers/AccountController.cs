@@ -33,25 +33,39 @@ namespace Concordia_Web_App.Controllers
 
         public ActionResult Assign_Roles()
         {
-            UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            //not needed:
+            //UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
             var users = db.Users;
             List<Assign_Roles_View_Model> models = new List<Assign_Roles_View_Model>();
+            var info = db.User_Information;
             foreach (var user in users)
             {
                 List<string> roles = new List<string>();
                 try
                 {
-                    var RolesList = userManager.GetRoles(user.Id);
+                    var RolesList = UserManager.GetRoles(user.Id);
                     foreach (string role in RolesList) { roles.Add(role); }
                 }
                 catch
                 {
                     roles.Add("No assigned role");
                 }
+                User_Information _info = null;
+
+                try
+                {
+                    _info = info.FirstOrDefault(_studentInfo => _studentInfo.User_Id == user.Id);
+                }
+                catch
+                {
+                    _info = null;
+                }
+                
                 var model = new Assign_Roles_View_Model()
                 {
                     User = user,
-                    Role = roles
+                    Role = roles,
+                    Info = _info
                 };
                 models.Add(model);
 
@@ -197,18 +211,31 @@ namespace Concordia_Web_App.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                User_Information info = new User_Information { First_Name = model.First_Name, Last_Name = model.Last_Name, User = user, Id = new, User_Id=}
+                //Dispose();
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    
+                    int infoNewId = db.User_Information.Max(x => x.Id) + 1;
+                    User_Information info = new User_Information { Id = infoNewId, First_Name = model.First_Name, Last_Name = model.Last_Name, Middle_Initial = model.Middle_Initial, User_Id = user.Id };
+                    //User_InformationController userInfoController = new User_InformationController();
+                    //userInfoController.Create(info);
+                    db.User_Information.Add(info);
+                    try
+                    {
+                    db.SaveChanges();
 
+                    }catch(Exception e)
+                    {
+                        Console.WriteLine(e);
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
